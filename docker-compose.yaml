@@ -1,0 +1,13 @@
+services:
+    jenkins_qa_guru:
+        image: jenkins/jenkins:lts
+        privileged: true
+        user: root
+        ports:
+            - 8082:8080
+        container_name: jenkins_qa_guru
+        volumes:
+        - jenkins_home:/var/jenkins_home
+
+volumes:
+    jenkins_home:
