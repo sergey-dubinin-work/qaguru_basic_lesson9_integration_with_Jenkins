@@ -11,12 +11,20 @@ repositories {
 dependencies {
     testImplementation (
             "org.junit.jupiter:junit-jupiter:$jUnitVersion",
+            "org.slf4j:slf4j-simple:2.0.17"
     )
     testRuntimeOnly (
             "org.junit.jupiter:junit-jupiter-engine:$jUnitVersion"
     )
 }
 
-test{
+tasks.withType(Test).configureEach{
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events( "started", "skipped", "failed", "standard_error", "standard_out")
+            exceptionFormat "short"
+        }
+    }
 }
