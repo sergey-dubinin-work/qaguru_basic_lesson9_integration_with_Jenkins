@@ -8,7 +8,9 @@ repositories {
 }
 
 def jUnitVersion = '5.8.1',
-    allureVersion = '2.29.0'
+    allureVersion = '2.29.0',
+    webDriverManagerVersion = '5.9.3',
+    selenideVersion = '7.7.3'
 
 allure {
     report {
@@ -29,7 +31,9 @@ dependencies {
     testImplementation (
             "org.junit.jupiter:junit-jupiter:$jUnitVersion",
             "org.slf4j:slf4j-simple:2.0.17",
-            "io.qameta.allure:allure-selenide:2.29.0"
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "io.github.bonigarcia:webdrivermanager:$webDriverManagerVersion",
+            "com.codeborne:selenide:$selenideVersion",
     )
     testRuntimeOnly (
             "org.junit.jupiter:junit-jupiter-engine:$jUnitVersion"
