@@ -41,6 +41,7 @@ public class TestBase {
     @AfterEach
     void tearDown() {
         AllureAttachments.addScreenshotAs("Last screenshot");
+        AllureAttachments.addPageSource();
     }
 
 }

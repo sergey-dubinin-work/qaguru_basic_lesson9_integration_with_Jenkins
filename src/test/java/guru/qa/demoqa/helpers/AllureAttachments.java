@@ -9,4 +9,9 @@ public class AllureAttachments {
         return DriverUtils.getScreenshotAsBytes();
     }
 
+    @Attachment(value = "Page source", type = "text/html", fileExtension = "html")
+    public static byte[] addPageSource() {
+        return DriverUtils.getPageSourceAsBytes();
+    }
+
 }
