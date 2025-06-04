@@ -1,4 +1,4 @@
-package guru.qa;
+package guru.qa.simple;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
