@@ -1,14 +1,16 @@
 package guru.qa.demoqa.tests;
 
 import com.codeborne.selenide.Selenide;
-import guru.qa.TestBase;
-import guru.qa.pages.RegistrationPage;
+import guru.qa.demoqa.TestBase;
+import guru.qa.demoqa.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class JSExecutionTest extends TestBase {

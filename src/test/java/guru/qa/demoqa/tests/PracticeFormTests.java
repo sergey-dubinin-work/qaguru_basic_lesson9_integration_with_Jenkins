@@ -4,10 +4,10 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import com.google.gson.JsonObject;
-import guru.qa.TestBase;
-import guru.qa.pages.RegistrationPage;
-import guru.qa.pages.RegistrationResultsPage;
-import guru.qa.utils.JavaScriptReader;
+import guru.qa.demoqa.TestBase;
+import guru.qa.demoqa.pages.RegistrationPage;
+import guru.qa.demoqa.pages.RegistrationResultsPage;
+import guru.qa.demoqa.utils.JavaScriptReader;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -15,9 +15,9 @@ import java.util.Map;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static guru.qa.helpers.JsonConverter.convertPlainJsonToJsonObject;
-import static guru.qa.testData.TestData.userEmail;
-import static guru.qa.utils.RandomUtils.getRandomString;
+import static guru.qa.demoqa.helpers.JsonConverter.convertPlainJsonToJsonObject;
+import static guru.qa.demoqa.testData.TestData.userEmail;
+import static guru.qa.demoqa.utils.RandomUtils.getRandomString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PracticeFormTests extends TestBase {

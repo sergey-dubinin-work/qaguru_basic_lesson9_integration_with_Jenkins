@@ -2,7 +2,7 @@ package guru.qa.demoqa.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import guru.qa.pages.components.CalendarComponent;
+import guru.qa.demoqa.pages.components.CalendarComponent;
 
 import java.io.File;
 

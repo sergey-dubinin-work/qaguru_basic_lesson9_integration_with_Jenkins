@@ -34,6 +34,7 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.github.bonigarcia:webdrivermanager:$webDriverManagerVersion",
             "com.codeborne:selenide:$selenideVersion",
+            "com.github.javafaker:javafaker:1.0.2"
     )
     testRuntimeOnly (
             "org.junit.jupiter:junit-jupiter-engine:$jUnitVersion"
