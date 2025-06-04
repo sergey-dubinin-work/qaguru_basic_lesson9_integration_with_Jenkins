@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.HashMap;
 
+import static guru.qa.demoqa.config.ConfigurationManager.getConfig;
+
 public class TestBase {
 
     @BeforeAll
@@ -20,8 +22,7 @@ public class TestBase {
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-//        Configuration.remote = "http://localhost:4444/wd/hub";
-        Configuration.remote = "http://host.docker.internal:4444/wd/hub";
+        Configuration.remote = String.format("%s:4444/wd/hub", getConfig().selenoidUrl());
 
         ChromeOptions options = new ChromeOptions();
 
