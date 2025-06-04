@@ -45,6 +45,7 @@ public class TestBase {
 
         AllureAttachments.addScreenshotAs("Last screenshot");
         AllureAttachments.addPageSource();
+        AllureAttachments.addBrowserConsoleLogs();
 
         closeWebDriver();
 

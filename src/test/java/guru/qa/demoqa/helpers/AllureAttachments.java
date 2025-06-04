@@ -16,6 +16,11 @@ public class AllureAttachments {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(DriverUtils.class);
 
+    @Attachment(value = "{attachName}", type = "text/plain")
+    public static String attachAsText(String attachName, String message) {
+        return message;
+    }
+
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] addScreenshotAs(String attachName) {
         return DriverUtils.getScreenshotAsBytes();
@@ -24,6 +29,13 @@ public class AllureAttachments {
     @Attachment(value = "Page source", type = "text/html", fileExtension = "html")
     public static byte[] addPageSource() {
         return DriverUtils.getPageSourceAsBytes();
+    }
+
+    public static void addBrowserConsoleLogs() {
+        attachAsText(
+                "Browser console logs",
+                DriverUtils.getConsoleLogs()
+        );
     }
 
     public static void addVideo(String sessionId){
