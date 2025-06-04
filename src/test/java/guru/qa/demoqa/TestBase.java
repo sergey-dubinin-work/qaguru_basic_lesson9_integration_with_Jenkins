@@ -50,6 +50,7 @@ public class TestBase {
         closeWebDriver();
 
         AllureAttachments.addVideo(sessionId);
+        AllureAttachments.addAutoplayVideo(sessionId);
     }
 
 }

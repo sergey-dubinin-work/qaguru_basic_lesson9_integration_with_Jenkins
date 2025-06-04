@@ -8,7 +8,9 @@ import org.slf4j.LoggerFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UncheckedIOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
@@ -65,6 +67,27 @@ public class AllureAttachments {
 
         }
 
+    }
+
+    @Attachment(value = "Autoplay video", type = "text/html", fileExtension = ".html")
+    public static String addAutoplayVideo(String sessionId) {
+
+        return loadTemplate("templatesHTML/autoplayVideo.html").replace(
+                "{{video_url}}",
+                DriverUtils.getVideoUrl(sessionId).toString()
+        );
+
+    }
+
+    public static String loadTemplate(String templatePath) {
+        try (InputStream inputStream = ClassLoader.getSystemResourceAsStream(templatePath)) {
+            if (inputStream == null) {
+                throw new IllegalArgumentException("Template file not found: " + templatePath);
+            }
+            return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to load template: " + templatePath, e);
+        }
     }
 
 }
