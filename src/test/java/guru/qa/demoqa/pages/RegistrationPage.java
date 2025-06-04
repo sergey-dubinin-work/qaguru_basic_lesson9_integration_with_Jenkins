@@ -3,6 +3,7 @@ package guru.qa.demoqa.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import guru.qa.demoqa.pages.components.CalendarComponent;
+import io.qameta.allure.Step;
 
 import java.io.File;
 
@@ -34,6 +35,7 @@ public class RegistrationPage {
 
     CalendarComponent calendarComponent = new CalendarComponent();
 
+    @Step("Открываем страницу формы")
     public RegistrationPage openPage(){
         open("/automation-practice-form");
         return this;
