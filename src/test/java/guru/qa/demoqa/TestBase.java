@@ -14,7 +14,8 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.remote = "http://localhost:4444/wd/hub";
+//        Configuration.remote = "http://localhost:4444/wd/hub";
+        Configuration.remote = "http://host.docker.internal:4444/wd/hub";
 
         ChromeOptions options = new ChromeOptions();
 
