@@ -1,3 +1,7 @@
+networks:
+    selenoid:
+        external: true
+
 services:
     jenkins_qa_guru:
         image: jenkins/jenkins:lts
@@ -8,6 +12,51 @@ services:
         container_name: jenkins_qa_guru
         volumes:
         - jenkins_home:/var/jenkins_home
+
+    selenoid:
+        image: aerokube/selenoid:latest
+        container_name: selenoid
+        ports:
+            - "4444:4444"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock # Для управления контейнерами
+            - ./src/test/resources/browsers/:/etc/selenoid/
+            - ./selenoid/video:/selenoid/video # Место для хранения видео
+            - ./selenoid/logs:/selenoid/logs # Место для логов
+        environment:
+            #      - OVERRIDE_VIDEO_OUTPUT_DIR=/selenoid/video
+            - OVERRIDE_VIDEO_OUTPUT_DIR=D:\Java Projects\qaguru\java basic\qaguru_basic_lesson9_integration_with_Jenkins\selenoid\video
+        command:
+            - "-conf"
+            - "/etc/selenoid/browsers.json"
+            - "-video-recorder-image"
+            - "selenoid/video-recorder:latest-release"
+            - "-video-output-dir"
+            - "./selenoid/video"
+            - "-log-output-dir"
+            - "./selenoid/logs"
+            - "-container-network"
+            - "selenoid"
+        networks:
+            - selenoid
+        logging:
+            driver: "json-file"  # Логирование с помощью драйвера json-file
+            options:
+                max-size: "10m"
+                max-file: "3"
+
+    selenoid-ui:
+        image: aerokube/selenoid-ui:latest
+        container_name: selenoid-ui
+        ports:
+            - "8083:8080"
+        command:
+            - "--selenoid-uri"
+            - "http://selenoid:4444"
+        depends_on:
+            - selenoid
+        networks:
+            - selenoid
 
 volumes:
     jenkins_home:
