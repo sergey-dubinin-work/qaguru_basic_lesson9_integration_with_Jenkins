@@ -53,3 +53,9 @@ tasks.withType(Test).configureEach{
         }
     }
 }
+
+tasks.register("properties_test", Test).configure {
+    useJUnitPlatform(){
+        includeTags("properties")
+    }
+}
