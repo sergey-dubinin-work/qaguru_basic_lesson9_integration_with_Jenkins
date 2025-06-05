@@ -12,4 +12,10 @@ public interface Configuration extends Config {
     @Key("selenoid.url")
     String selenoidUrl();
 
+    @Key("selenoid.port")
+    String selenoidPort();
+
+    @Key("selenoid.ui.port")
+    String selenoidUIPort();
+
 }

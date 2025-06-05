@@ -37,8 +37,9 @@ public class DriverUtils {
 
     public static URL getVideoUrl(String sessionId){
         String videoUrl = String.format(
-                "%s:8083/video/%s.mp4",
+                "%s:%s/video/%s.mp4",
                 getConfig().selenoidUrl(),
+                getConfig().selenoidUIPort(),
                 sessionId
         );
 

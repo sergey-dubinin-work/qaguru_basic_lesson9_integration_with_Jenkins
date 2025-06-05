@@ -31,6 +31,7 @@ bin/
 out/
 logs/
 target/
+selenoid/
 .classpath
 .project
 .settings/org.eclipse.buildship.core.prefs
