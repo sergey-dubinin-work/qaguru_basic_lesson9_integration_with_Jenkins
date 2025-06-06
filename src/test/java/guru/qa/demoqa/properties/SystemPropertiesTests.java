@@ -38,4 +38,16 @@ public class SystemPropertiesTests {
         System.out.println(browser); // Opera
     }
 
+    @Test
+    @Tag("properties")
+    void test5() {
+        String browser = System.getProperty("browser", "chrome");
+        String browserVersion = System.getProperty("browserVersion", "91");
+        String browserSize = System.getProperty("browserSize", "800x600");
+
+        System.out.println(browser);
+        System.out.println(browserVersion);
+        System.out.println(browserSize);
+    }
+
 }
