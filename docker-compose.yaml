@@ -12,6 +12,7 @@ services:
         container_name: jenkins_qa_guru
         volumes:
         - jenkins_home:/var/jenkins_home
+        restart: always
 
     selenoid:
         image: aerokube/selenoid:latest
